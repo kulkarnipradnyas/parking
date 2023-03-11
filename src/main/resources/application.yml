@@ -1,0 +1,51 @@
+
+server:
+  port: 8084
+  context-path: /
+
+
+spring:
+  profiles:
+    active: "dev"
+  sql.init.mode: always
+
+  main:
+    allow-bean-definition-overriding: true
+    ###useSSL=false specifies that SSL should not be used for the connection,serverTimezone=UTC specifies the timezone to use for the connection
+  datasource:
+    url: jdbc:mysql://localhost:3306/parkingLot_db?useSSL=false&serverTimezone=UTC
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+#    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: none
+      format_sql: true
+      show-sql: true
+  flyway:
+    baselineOnMigrate: true
+    locations: classpath:db/migration
+    schemas: parkingLot_db
+    baselineVersion: 1
+    baselineDescription: "baseline"
+    enabled: true
+
+logging:
+  level:
+    org.flywaydb.core.internal.command.DbValidate: DEBUG
+    org.flywaydb.core.internal.command.DbMigrate: DEBUG
+#  logging:
+#    level:
+#      org:
+#        flywaydb.core.internal.command.DbValidate: DEBUG
+#        flywaydb.core.internal.command.DbMigrate: DEBUG
+#        hibernate:
+#          SQL: DEBUG
+#          type:
+#            descriptor:
+#              sql:
+#                BasicBinder: TRACE
+
+
