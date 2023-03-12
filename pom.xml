@@ -15,6 +15,8 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<maven.file.encoding>UTF-8</maven.file.encoding>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -44,12 +46,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
-		<dependency>
-			<groupId>org.modelmapper</groupId>
-			<artifactId>modelmapper</artifactId>
-			<version>3.1.1</version>
-		</dependency>
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
@@ -62,7 +58,6 @@
 				<url>https://repo1.maven.org/maven2/org/flywaydb/flyway-maven-plugin/</url>
 			</pluginRepository>
 		</pluginRepositories>
-
 	<build>
 		<plugins>
 			<plugin>
