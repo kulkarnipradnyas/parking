@@ -5,7 +5,6 @@ import com.parkinglot.parkinglotfees.exception.ErrorCodes;
 import com.parkinglot.parkinglotfees.exception.ParkingServiceException;
 import com.parkinglot.parkinglotfees.repository.FeeSchemaRepository;
 import com.parkinglot.parkinglotfees.repository.OrganisationRepository;
-import com.parkinglot.parkinglotfees.repository.ParkingLotRepository;
 import com.parkinglot.parkinglotfees.repository.VehicleRepository;
 import com.parkinglot.parkinglotfees.service.ParkingLotBooking;
 import com.parkinglot.parkinglotfees.utils.ParkingUtils;
@@ -20,12 +19,12 @@ import java.util.stream.IntStream;
 @Service
 public class ParkingLotBookingImpl implements ParkingLotBooking {
     private OrganisationRepository organisationRepository;
-    private ParkingLotRepository parkingLotRepository;
+    private ParkingLotAction parkingLotRepository;
 
     private FeeSchemaRepository feeSchemaRepository;
     private VehicleRepository vehicleRepository;
 
-    public ParkingLotBookingImpl(OrganisationRepository organisationRepository, ParkingLotRepository parkingLotRepository, FeeSchemaRepository feeSchemaRepository,
+    public ParkingLotBookingImpl(OrganisationRepository organisationRepository, ParkingLotAction parkingLotRepository, FeeSchemaRepository feeSchemaRepository,
                                  VehicleRepository vehicleRepository) {
         this.organisationRepository = organisationRepository;
         this.parkingLotRepository = parkingLotRepository;
