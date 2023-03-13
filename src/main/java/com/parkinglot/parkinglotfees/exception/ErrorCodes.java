@@ -1,7 +1,10 @@
 package com.parkinglot.parkinglotfees.exception;
 
 public enum ErrorCodes {
-    E311012,
+    //Bad Request
     E311011,
-    E311023
+    //Internal server error
+    E311012,
+    //Method not allowed
+    E311013
 }

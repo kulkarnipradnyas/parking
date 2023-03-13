@@ -17,12 +17,17 @@
 		<java.version>11</java.version>
 		<maven.file.encoding>UTF-8</maven.file.encoding>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<springframework.boot.version>2.7.9</springframework.boot.version>
+
+
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -33,10 +38,22 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${springframework.boot.version}</version>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>android-json</artifactId>
+					<groupId>com.vaadin.external.google</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>json-smart</artifactId>
+					<groupId>net.minidev</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -70,10 +87,15 @@
 					<url>jdbc:mysql://localhost:3306/parkingLot_db</url>
 				</configuration>
 				<dependencies>
+<!--					<dependency>-->
+<!--						<groupId>mysql</groupId>-->
+<!--						<artifactId>mysql-connector-java</artifactId>-->
+<!--						<version>8.0.27</version>-->
+<!--					</dependency>-->
 					<dependency>
-						<groupId>mysql</groupId>
-						<artifactId>mysql-connector-java</artifactId>
-						<version>8.0.27</version>
+						<groupId>com.mysql</groupId>
+						<artifactId>mysql-connector-j</artifactId>
+						<version>8.0.32</version>
 					</dependency>
 				</dependencies>
 			</plugin>

@@ -53,7 +53,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(code = HttpStatus.METHOD_NOT_ALLOWED)
     public ErrorResponse handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException exception, WebRequest request) {
         logger.error("Handle http request method not supported exception", exception);
-        ErrorResponse response = MessagesConfiguration.getConfig().getErrorResponse(ErrorCodes.E311023.name());
+        ErrorResponse response = MessagesConfiguration.getConfig().getErrorResponse(ErrorCodes.E311013.name());
         response.setCause(String.join(SPACE, response.getCause(), exception.getMessage()));
         return response;
     }
