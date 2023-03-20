@@ -25,21 +25,21 @@ public class ParkingLot {
     @JoinColumn(name = "organisation_id",referencedColumnName = "id")
     private  Organisation organisation;
 
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "vehicle_id")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "vehicle_type", referencedColumnName = "id")
     private Vehicle vehicleType;
 
     @ManyToMany
-    @JoinColumn(name = "fee_schema_id")
+    @JoinTable(
+            name = "parking_lot_fee_schema",
+            joinColumns = @JoinColumn(name = "parking_lot_id"),
+            inverseJoinColumns = @JoinColumn(name = "fee_schema_id")
+    )
     private List<FeeSchema> feeSchema;
 
     @Column(name = "entry_time", columnDefinition="DATETIME")
     private LocalDateTime entryTime;
 
-    @Column(name = "exit_time",columnDefinition="DATETIME")
-    private LocalDateTime exitTime;
 
     @Column(name = "parking_spot_id")
     private Integer parking_spot_number;

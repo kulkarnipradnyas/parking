@@ -1,9 +1,13 @@
 package com.parkinglot.parkinglotfees.service;
 
 import com.parkinglot.parkinglotfees.entity.VehicleType;
-import org.springframework.stereotype.Service;
+import com.parkinglot.parkinglotfees.model.ParkedResponse;
+
+import java.util.Map;
 
 
 public interface ParkingLotBooking {
- public String markSpotBooking(String orgName, VehicleType vehicleType);
+ public  Map<String, String> markSpotBooking(String orgName, VehicleType vehicleType);
+
+ public Map<String, String> unMarkSpotBooking(String receiptNumber);
 }

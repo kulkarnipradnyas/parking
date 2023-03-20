@@ -80,13 +80,17 @@ CREATE TABLE IF NOT EXISTS parkinglot_db.parking_lot (
     id BIGINT NOT NULL AUTO_INCREMENT,
     organisation_id BIGINT,
     vehicle_type VARCHAR(255),
-    fee_schema_id BIGINT,
-    exit_time DATETIME,
     entry_time DATETIME,
     parking_spot_id INT,
     PRIMARY KEY (id),
     FOREIGN KEY (organisation_id) REFERENCES parkinglot_db.organisation(id),
     FOREIGN KEY (fee_schema_id) REFERENCES parkinglot_db.fee_schema(id)
 );
-
+CREATE TABLE IF NOT EXISTS parkinglot_db.parking_lot_fee_schema (
+    parking_lot_id BIGINT NOT NULL,
+    fee_schema_id BIGINT NOT NULL,
+    PRIMARY KEY (parking_lot_id, fee_schema_id),
+    FOREIGN KEY (parking_lot_id) REFERENCES parkinglot_db.parking_lot(id),
+    FOREIGN KEY (fee_schema_id) REFERENCES parkinglot_db.fee_schema(id)
+);
 commit;
